@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add,Store,Retrieve your product</title>
+    <link rel="stylesheet" href="{% static "mineral/common.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+
+       <br>
+       <div class="container">
+
+            <ul class="nav nav-pills">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Home" %}">Home</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Sign Up" %}">Register</a>
+                </li>
+
+            </ul>
+
+       </div>
+       <br>
+       <hr width="1100px" color="blue">
+
+       <div class="container">
+
+            <div class="jumbotron">
+
+                <form method="POST" action="{% url "Mineral:Login" %}">
+                    {% csrf_token %}
+                    <div class="form-group">
+
+                         <input type="text" style="width: 500px;" class="form-control" placeholder="Username" id="un" name="uname">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="password" style="width: 500px;" class="form-control" id="pass" aria-describedby="emailHelp" placeholder="Password" name="password">
+
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+
+                        <button type="submit" class="btn btn-success">Login my account</button>
+
+                    </div>
+
+                </form>
+
+           </div>
+       </div>
+
+</body>
+</html>

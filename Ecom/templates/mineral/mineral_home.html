@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add,Store,Retrieve your product</title>
+    <link rel="stylesheet" href="{% static "mineral/common.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+
+        <br>
+        <div class="container">
+
+            <ul class="nav nav-pills" id="navs">
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "Mineral:Home" %}">Home</a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{% url "Mineral:Sign Up" %}">Register</a>
+            </li>
+
+            {% if user.is_authenticated %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Logout" %}">Logout</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Login" %}">Login</a>
+                </li>
+            {% endif %}
+
+
+
+
+
+
+            </ul>
+
+        </div>
+
+        <div class="container">
+            <br>
+            <hr color="blue">
+
+            <div class="jumbotron">
+
+                <h2>Mineral</h2>
+                <p>Register yourself above if you are not</p>
+            </div>
+        </div>
+
+
+
+</body>
+</html>

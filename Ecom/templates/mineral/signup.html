@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add,Store,Retrieve your product</title>
+    <link rel="stylesheet" href="{% static "mineral/common.css" %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+</head>
+<body>
+
+        <br>
+        <div class="container">
+
+             <ul class="nav nav-pills" id="navs">
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Home" %}">Home</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Sign Up" %}">Register</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url "Mineral:Login" %}">Login</a>
+                </li>
+
+             </ul>
+
+        </div>
+        <br>
+        <hr width="1100px" color="blue">
+
+        <div class="container">
+
+             <div class="jumbotron">
+
+                 {% if signed %}
+
+                    <h2>Thank You registering</h2>
+                    <h2>Your account has been successfully created</h2>
+
+                 {% else %}
+
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %}
+                        {{ cusform.as_p }}
+                        {{ cusinfoform.as_p }}
+                        <input type="submit" value="Submit">
+
+                    </form>
+
+                 {% endif %}
+
+             </div>
+
+        </div>
+
+</body>
+</html>
